@@ -1,4 +1,4 @@
-public class Fraction {
+cdpublic class Fraction {
 
 	
 	public String toString() {
@@ -7,6 +7,8 @@ public class Fraction {
 	
 	
 	public static void main(String[] args) {
+
+		int numerateur,denominateur;  
 		
 		System.out.println("première affichage !");
 		
