@@ -2,3 +2,6 @@
 # Compiled class file
 *.class
 
+#les fichiers de configuration de l'IDE du projet;
+*.project
+*.classpath
