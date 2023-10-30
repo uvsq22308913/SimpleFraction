@@ -56,8 +56,9 @@ public class Fraction {
 		//System.out.println(ZERO.getNumerateur());
 
 		//System.out.println(.doubleValue());
-		System.out.println("hey");
+		
 
 	}
 
 }
+
