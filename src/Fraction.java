@@ -1,4 +1,4 @@
-public class Fraction {
+public class Fraction{
 
 	private int numerateur;
 	private int denominateur;
@@ -33,9 +33,40 @@ public class Fraction {
 		return this.numerateur;
 	}
 
-	public int getDenomerateur() {
+	public int getDenomirateur() {
 		return this.denominateur;
 	}
+
+	public double doubleValue(){
+		return (double) numerateur / denominateur;
+	}
+
+	public Fraction add(Fraction f){
+		int Num=this.numerateur*f.denominateur+this.denominateur*f.numerateur;
+		int den=this.denominateur*f.denominateur;
+
+		return new Fraction(Num,den);
+	}
+
+	/*public boolean egal(Fraction f){
+		boolean result=false;
+		if(this.doubleValue()==f.doubleValue()){
+			result=true;
+		}
+		return result;
+	}*/
+
+	public boolean equals(Object obj){
+		if(this==obj) return true;
+		if (obj==null) return false;
+		if (this.getClass() != obj.getClass())  return false;
+			Fraction f=(Fraction)obj;
+
+		if (this.denominateur == 0 || f.denominateur == 0) return false;	
+		if (this.doubleValue()==f.doubleValue()){return true;}
+		else { return false;}
+	}
+
 
 	public static void main(String[] args) {
 
@@ -51,14 +82,22 @@ public class Fraction {
 
 		assert fraction3.toString().equals("0");
 
-		//System.out.println(ZERO.numerateur);
+		//assertion pour tester la conversion
 
-		//System.out.println(ZERO.getNumerateur());
+		assert fraction1.doubleValue()==1.5: "La conversion de la fraction a échoué.";
 
-		//System.out.println(.doubleValue());
-		
+		System.out.println("La conversion de la fraction a réussi.");
 
+		Fraction SommeFraction=fraction1.add(fraction2);
+
+		assert SommeFraction.getNumerateur()==19;
+		assert SommeFraction.getDenomirateur()==2;
+
+		System.out.println("L'addition de fractions a réussi.");
+
+	    assert fraction1.egal(fraction2):"les fractions ne sont pas égales !!";
+
+		System.out.println("fraction et fraction sont égaux"); 
 	}
 
 }
-
