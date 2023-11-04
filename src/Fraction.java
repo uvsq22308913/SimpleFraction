@@ -124,9 +124,9 @@ public class Fraction extends java.lang.Number implements Comparable<Fraction>{
 
 		System.out.println("L'addition de fractions a réussi.");
 
-	    assert fraction1.equals(fraction4):"les fractions ne sont pas égales !!";
+	    assert fraction2.equals(fraction4):"les fractions ne sont pas égaaux !!";
 
-		System.out.println("fraction1 et fraction4 sont égaux");
+		System.out.println("fraction2 et fraction4 sont égaux");
 
 		assert fraction1.compareTo(fraction2)==-1:"fraction1 n'est pas inférieur à fraction2";
 
