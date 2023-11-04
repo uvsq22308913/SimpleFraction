@@ -1,4 +1,4 @@
-public class Fraction{
+public class Fraction extends java.lang.Number implements Comparable<Fraction>{
 
 	private int numerateur;
 	private int denominateur;
@@ -67,6 +67,31 @@ public class Fraction{
 		else { return false;}
 	}
 
+	public int compareTo(Fraction f){
+		if(this.doubleValue()<f.doubleValue())
+			return -1;
+		else if(this.doubleValue()==f.doubleValue())
+			return 0;
+		else
+		    return 1;
+	}
+
+	@Override
+    public float floatValue() {
+        return (float) numerateur / denominateur;
+    }
+
+    @Override
+    public long longValue() {
+        return (long) numerateur / denominateur;
+    }
+
+    @Override
+    public int intValue() {
+        return numerateur / denominateur;
+    }
+
+
 
 	public static void main(String[] args) {
 
@@ -82,6 +107,10 @@ public class Fraction{
 
 		assert fraction3.toString().equals("0");
 
+		Fraction fraction4 = new Fraction(24,3);
+
+		assert fraction2.toString().equals("8");
+
 		//assertion pour tester la conversion
 
 		assert fraction1.doubleValue()==1.5: "La conversion de la fraction a échoué.";
@@ -95,9 +124,21 @@ public class Fraction{
 
 		System.out.println("L'addition de fractions a réussi.");
 
-	    assert fraction1.egal(fraction2):"les fractions ne sont pas égales !!";
+	    assert fraction1.equals(fraction4):"les fractions ne sont pas égales !!";
 
-		System.out.println("fraction et fraction sont égaux"); 
+		System.out.println("fraction1 et fraction4 sont égaux");
+
+		assert fraction1.compareTo(fraction2)==-1:"fraction1 n'est pas inférieur à fraction2";
+
+		System.out.println("fraction1 est inférieur à fraction2");
+
+		assert fraction2.compareTo(fraction1)==1:"fraction2 n'est pas supérieur à fraction1";
+
+		System.out.println("fraction2 est supérieur à fraction1");
+
+		 Number aNumber = java.math.BigDecimal.ONE;
+		 Number anotherNumber = new Fraction(1, 2);
+ 		 assert java.lang.Math.abs(aNumber.doubleValue() + anotherNumber.doubleValue() - 1.5) < 1E-8;
 	}
 
 }
